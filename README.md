@@ -1,15 +1,15 @@
 # gestor-leads
 
-Dashboard local para prospección asistida de constructoras con webs simples en mercados hispanohablantes.
+Dashboard local para prospección asistida de empresas por rubro, con foco en detectar webs flojas y oportunidades comerciales en mercados hispanohablantes y angloparlantes.
 
 ## Objetivo
 
-Encontrar constructoras con presencia web floja, ver su sitio desde un tablero, detectar oportunidades y generar un mensaje comercial listo para usar, sin mandar nada automáticamente.
+Encontrar empresas de cualquier rubro con presencia web floja, ver su sitio desde un tablero, detectar oportunidades y generar un mensaje comercial listo para usar, sin mandar nada automáticamente.
 
 ## Qué hace
 
-- Busca constructoras por país y ciudad
-- Toma resultados desde una base gratuita curada por país
+- Busca empresas por rubro, país y ciudad
+- Combina una base curada con búsqueda web pública
 - Extrae nombre, sitio y snippet
 - Analiza cada web con heurísticas comerciales
 - Calcula score y prioridad (`A`, `B`, `C`)
@@ -46,7 +46,7 @@ El score sube cuando la web:
 
 1. Levantar con `npm run dev`
 2. Abrir `http://localhost:4173`
-3. Elegir países, ciudad y cantidad
+3. Elegir rubro, países, ciudad y cantidad
 4. Revisar resultados, score, preview y mensaje
 5. Abrir la web real o copiar el texto sugerido
 
@@ -72,5 +72,5 @@ Con eso, al importar el repo en Vercel no hace falta correr el servidor Express 
 
 - No envía emails ni mensajes automáticamente.
 - Algunas webs bloquean iframes; en ese caso se puede usar el botón `Abrir sitio`.
-- Para evitar bloqueos `403` en Vercel, la búsqueda usa una base gratuita curada (`data/prospects-seed.json`) en lugar de depender de buscadores externos.
-- Esa base se puede ampliar manualmente con más constructoras, ciudades y países sin costo.
+- Para evitar quedarse sin resultados, la búsqueda combina una base curada (`data/prospects-seed.json`) con búsqueda web pública.
+- Ya incluye países hispanohablantes y también mercados angloparlantes como Estados Unidos, Reino Unido, Canadá, Australia, Nueva Zelanda, Irlanda, Sudáfrica y Singapur.

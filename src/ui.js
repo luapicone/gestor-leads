@@ -1,3 +1,24 @@
+const ALL_COUNTRIES = [
+  'España',
+  'México',
+  'Argentina',
+  'Chile',
+  'Perú',
+  'Colombia',
+  'Uruguay',
+  'Paraguay',
+  'Ecuador',
+  'Panamá',
+  'Estados Unidos',
+  'Reino Unido',
+  'Canadá',
+  'Australia',
+  'Nueva Zelanda',
+  'Irlanda',
+  'Sudáfrica',
+  'Singapur'
+]
+
 const API_BASE = ['localhost', '127.0.0.1'].includes(window.location.hostname) && window.location.port !== '4174'
   ? 'http://localhost:4174'
   : ''
@@ -9,13 +30,12 @@ const state = {
   selectedWebsite: '',
   copiedIndex: null,
   filters: {
+    industry: '',
     city: '',
     countries: ['España', 'México', 'Argentina', 'Chile'],
     limit: 12
   }
 }
-
-const allCountries = ['España', 'México', 'Argentina', 'Chile', 'Perú', 'Colombia', 'Uruguay', 'Paraguay', 'Ecuador', 'Panamá']
 
 function el(tag, className, content) {
   const node = document.createElement(tag)
@@ -71,13 +91,13 @@ function renderHeader(root) {
   hero.innerHTML = `
     <div class="hero-copy">
       <span class="eyebrow">Prospección asistida</span>
-      <h1>Constructoras con web floja, detectadas y listas para ofertar.</h1>
-      <p>El sistema busca empresas, analiza su sitio, les asigna oportunidad comercial y redacta un mensaje. No envía nada: vos revisás todo desde acá.</p>
+      <h1>Empresas por rubro, detectadas y listas para ofertar.</h1>
+      <p>Elegís rubro, países y ciudad. El sistema busca empresas, analiza su sitio, marca oportunidades comerciales y redacta un mensaje sugerido. No envía nada: vos revisás todo desde acá.</p>
     </div>
     <div class="hero-panel">
       <div class="stat"><strong>${state.items.length}</strong><span>prospectos en tablero</span></div>
       <div class="stat"><strong>${state.items.filter((item) => item.tier === 'A').length}</strong><span>prioridad alta</span></div>
-      <div class="stat"><strong>nice-delta</strong><span>estilo de referencia</span></div>
+      <div class="stat"><strong>multi-rubro</strong><span>búsqueda flexible</span></div>
     </div>
   `
   root.append(hero)
@@ -87,6 +107,10 @@ function renderFilters(root) {
   const panel = el('section', 'filters')
   panel.innerHTML = `
     <div class="filters-grid">
+      <label>
+        <span>Rubro</span>
+        <input id="industryInput" type="text" placeholder="Ej: constructoras, estudios contables, clínicas dentales, software" value="${state.filters.industry}" />
+      </label>
       <label>
         <span>Ciudad objetivo</span>
         <input id="cityInput" type="text" placeholder="Ej: Madrid, Santiago, Córdoba" value="${state.filters.city}" />
@@ -98,7 +122,7 @@ function renderFilters(root) {
       <button id="searchButton" class="search-button">${state.loading ? 'Buscando...' : 'Buscar oportunidades'}</button>
     </div>
     <div class="country-pills">
-      ${allCountries
+      ${ALL_COUNTRIES
         .map(
           (country) => `
             <button class="pill ${state.filters.countries.includes(country) ? 'is-active' : ''}" data-country="${country}">${country}</button>
@@ -108,6 +132,9 @@ function renderFilters(root) {
     </div>
   `
 
+  panel.querySelector('#industryInput').addEventListener('input', (event) => {
+    state.filters.industry = event.target.value
+  })
   panel.querySelector('#cityInput').addEventListener('input', (event) => {
     state.filters.city = event.target.value
   })
@@ -143,7 +170,7 @@ function renderGrid(root) {
     const empty = el('div', 'empty-state')
     empty.innerHTML = `
       <h2>Sin resultados todavía</h2>
-      <p>Elegí países, agregá una ciudad si querés afinar la búsqueda y tocá <strong>Buscar oportunidades</strong>.</p>
+      <p>Elegí un rubro, sumá países, agregá una ciudad si querés afinar la búsqueda y tocá <strong>Buscar oportunidades</strong>.</p>
     `
     grid.append(empty)
     root.append(grid)
@@ -180,7 +207,7 @@ function renderGrid(root) {
         <div>
           <span class="tier tier-${item.tier}">Prioridad ${item.tier}</span>
           <h3>${item.name}</h3>
-          <p class="meta">${item.country} · score ${item.score}</p>
+          <p class="meta">${item.country}${item.city ? ` · ${item.city}` : ''}${item.industry ? ` · ${item.industry}` : ''} · score ${item.score}</p>
         </div>
         <div class="card-actions">
           <button class="ghost-button" data-preview="${item.website}">Ver web</button>
