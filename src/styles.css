@@ -1,0 +1,332 @@
+:root {
+  color-scheme: dark;
+  --bg: #0f1117;
+  --panel: rgba(22, 27, 39, 0.85);
+  --panel-strong: #171d2a;
+  --line: rgba(255,255,255,0.08);
+  --text: #f4f0e8;
+  --muted: #a8b0c3;
+  --accent: #c99349;
+  --accent-soft: rgba(201, 147, 73, 0.18);
+  --success: #5cd6a4;
+  --warning: #ffcf66;
+  --danger: #ff8c7a;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(201, 147, 73, 0.16), transparent 28%),
+    radial-gradient(circle at right center, rgba(95, 109, 158, 0.22), transparent 24%),
+    linear-gradient(180deg, #0c0f15 0%, #111620 100%);
+}
+
+a { color: inherit; }
+
+.shell {
+  width: min(1380px, calc(100vw - 48px));
+  margin: 0 auto;
+  padding: 40px 0 56px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.hero-copy, .hero-panel, .filters, .prospect-card, .empty-state, .error, .site-preview-panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(16px);
+  border-radius: 28px;
+  box-shadow: 0 30px 70px rgba(0,0,0,0.22);
+}
+
+.hero-copy {
+  padding: 32px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: #f8d9aa;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.hero-copy h1 {
+  margin: 18px 0 16px;
+  font-size: clamp(2.3rem, 5vw, 4.6rem);
+  line-height: 0.92;
+  max-width: 12ch;
+}
+
+.hero-copy p {
+  margin: 0;
+  max-width: 60ch;
+  color: var(--muted);
+  font-family: 'Trebuchet MS', sans-serif;
+  line-height: 1.65;
+}
+
+.hero-panel {
+  padding: 24px;
+  display: grid;
+  gap: 14px;
+}
+
+.stat {
+  padding: 18px;
+  border-radius: 18px;
+  background: var(--panel-strong);
+  border: 1px solid var(--line);
+}
+
+.stat strong {
+  display: block;
+  font-size: 2rem;
+}
+
+.stat span {
+  color: var(--muted);
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+.filters {
+  margin-top: 22px;
+  padding: 24px;
+}
+
+.filters-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 180px 240px;
+  gap: 14px;
+}
+
+label span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 0.92rem;
+}
+
+input {
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: rgba(7, 10, 15, 0.74);
+  color: var(--text);
+  padding: 14px 16px;
+  font-size: 1rem;
+}
+
+.search-button, .pill {
+  border: 0;
+  cursor: pointer;
+}
+
+.search-button {
+  align-self: end;
+  border-radius: 18px;
+  padding: 14px 18px;
+  background: linear-gradient(135deg, #f1c67d, #ba7f36);
+  color: #17120f;
+  font-weight: 700;
+}
+
+.country-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.pill {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.04);
+  color: var(--muted);
+}
+
+.pill.is-active {
+  background: var(--accent-soft);
+  color: #ffdca7;
+  outline: 1px solid rgba(201, 147, 73, 0.38);
+}
+
+.error, .empty-state {
+  margin-top: 22px;
+  padding: 22px;
+}
+
+.prospect-layout {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.site-preview-panel {
+  position: sticky;
+  top: 22px;
+  padding: 24px;
+}
+
+.preview-panel-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: start;
+}
+
+.preview-panel-head h2 {
+  margin: 12px 0 0;
+  font-size: 1.15rem;
+  word-break: break-word;
+}
+
+.site-frame {
+  width: 100%;
+  height: 720px;
+  margin-top: 18px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: #fff;
+}
+
+.frame-fallback {
+  margin-top: 18px;
+  min-height: 240px;
+  border-radius: 20px;
+  display: grid;
+  place-items: center;
+  border: 1px dashed var(--line);
+  color: var(--muted);
+}
+
+.frame-note {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+.prospect-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.prospect-card {
+  padding: 24px;
+}
+
+.card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.ghost-button {
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.04);
+  color: var(--text);
+  border-radius: 14px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.card-top h3 {
+  margin: 10px 0 6px;
+  font-size: 1.55rem;
+}
+
+.meta, .snippet, .preview-box small, li {
+  color: var(--muted);
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+.tier {
+  display: inline-flex;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.tier-A { background: rgba(92,214,164,0.16); color: var(--success); }
+.tier-B { background: rgba(255,207,102,0.14); color: var(--warning); }
+.tier-C { background: rgba(255,140,122,0.14); color: var(--danger); }
+
+.snippet {
+  line-height: 1.6;
+}
+
+.preview-box, .signals-box, .message-box {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 18px;
+  background: rgba(7, 10, 15, 0.55);
+  border: 1px solid var(--line);
+}
+
+.preview-box p, .signals-box ul {
+  margin: 10px 0 0;
+}
+
+.signals-box ul {
+  padding-left: 18px;
+}
+
+textarea {
+  width: 100%;
+  min-height: 190px;
+  resize: vertical;
+  margin-top: 12px;
+  padding: 14px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.03);
+  color: var(--text);
+  font: inherit;
+  line-height: 1.55;
+}
+
+.message-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+
+@media (max-width: 1100px) {
+  .hero, .prospect-layout, .filters-grid {
+    grid-template-columns: 1fr;
+  }
+  .site-preview-panel {
+    position: static;
+  }
+  .site-frame {
+    height: 460px;
+  }
+  .shell {
+    width: min(100vw - 28px, 1380px);
+  }
+}
