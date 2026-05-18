@@ -1,9 +1,13 @@
 import express from 'express'
 import cors from 'cors'
 import { JSDOM } from 'jsdom'
+import path from 'path'
+import { fileURLToPath } from 'url'
 
 const app = express()
 const PORT = process.env.PORT || 4174
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const distPath = path.resolve(__dirname, '../dist')
 
 app.use(cors())
 app.use(express.json())
@@ -222,6 +226,15 @@ app.post('/api/prospects/search', async (req, res) => {
     res.status(500).json({ error: error.message || 'Error buscando prospectos' })
   }
 })
+
+if (process.env.NODE_ENV === 'production' || process.env.SERVE_DIST === 'true') {
+  app.use(express.static(distPath))
+
+  app.get('*', (req, res, next) => {
+    if (req.path.startsWith('/api/')) return next()
+    res.sendFile(path.join(distPath, 'index.html'))
+  })
+}
 
 app.listen(PORT, () => {
   console.log(`Prospecting server running on http://localhost:${PORT}`)

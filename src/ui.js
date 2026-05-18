@@ -1,3 +1,7 @@
+const API_BASE = ['localhost', '127.0.0.1'].includes(window.location.hostname) && window.location.port !== '4174'
+  ? 'http://localhost:4174'
+  : ''
+
 const state = {
   loading: false,
   items: [],
@@ -24,6 +28,21 @@ function formatSignals(signals = []) {
   return signals.map((signal) => `<li>${signal}</li>`).join('')
 }
 
+async function parseApiResponse(response) {
+  const raw = await response.text()
+
+  try {
+    const data = JSON.parse(raw)
+    if (!response.ok) throw new Error(data.error || 'No se pudo buscar prospectos')
+    return data
+  } catch (error) {
+    if (error instanceof SyntaxError) {
+      throw new Error(`La API devolvió una respuesta inválida: ${raw.slice(0, 160)}`)
+    }
+    throw error
+  }
+}
+
 async function searchProspects() {
   state.loading = true
   state.error = ''
@@ -31,13 +50,12 @@ async function searchProspects() {
   render()
 
   try {
-    const response = await fetch('/api/prospects/search', {
+    const response = await fetch(`${API_BASE}/api/prospects/search`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(state.filters)
     })
-    const data = await response.json()
-    if (!response.ok) throw new Error(data.error || 'No se pudo buscar prospectos')
+    const data = await parseApiResponse(response)
     state.items = data.items
     state.selectedWebsite = data.items[0]?.website || ''
   } catch (error) {
