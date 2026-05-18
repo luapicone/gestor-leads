@@ -1,5 +1,6 @@
 import express from 'express'
 import cors from 'cors'
+import 'dotenv/config'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import { DEFAULT_COUNTRIES, searchProspects } from '../lib/prospecting.js'

@@ -42,6 +42,13 @@ El score sube cuando la web:
 - `npm run build`
 - `npm run start`
 
+## Variables opcionales
+
+- `GOOGLE_SEARCH_API_KEY`
+- `GOOGLE_SEARCH_ENGINE_ID`
+
+Si están definidas, el buscador usa Google Custom Search como fuente prioritaria. Si no están, sigue con los buscadores públicos y el fallback actual.
+
 ## Uso
 
 1. Levantar con `npm run dev`
