@@ -55,6 +55,19 @@ El score sube cuando la web:
 - `GET /api/health`
 - `POST /api/prospects/search`
 
+## Vercel
+
+El repo quedó preparado para Vercel con:
+
+- `vercel.json` usando `npm run build`
+- frontend estático servido desde `dist`
+- funciones serverless en `api/`
+  - `api/health.js`
+  - `api/prospects/search.js`
+- lógica compartida en `lib/prospecting.js`
+
+Con eso, al importar el repo en Vercel no hace falta correr el servidor Express para producción.
+
 ## Notas
 
 - No envía emails ni mensajes automáticamente.
