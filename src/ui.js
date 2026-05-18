@@ -1,4 +1,5 @@
 const ALL_COUNTRIES = [
+  'Global',
   'España',
   'México',
   'Argentina',
@@ -32,7 +33,7 @@ const state = {
   filters: {
     industry: '',
     city: '',
-    countries: ['España', 'México', 'Argentina', 'Chile'],
+    countries: ['Global'],
     limit: 12
   }
 }
@@ -92,7 +93,7 @@ function renderHeader(root) {
     <div class="hero-copy">
       <span class="eyebrow">Prospección asistida</span>
       <h1>Empresas por rubro, detectadas y listas para ofertar.</h1>
-      <p>Elegís rubro, países y ciudad. El sistema busca empresas, analiza su sitio, marca oportunidades comerciales y redacta un mensaje sugerido. No envía nada: vos revisás todo desde acá.</p>
+      <p>Elegís rubro, búsqueda global o países puntuales, y ciudad si querés afinar. El sistema busca empresas, analiza su sitio, marca oportunidades comerciales y redacta un mensaje sugerido. No envía nada: vos revisás todo desde acá.</p>
     </div>
     <div class="hero-panel">
       <div class="stat"><strong>${state.items.length}</strong><span>prospectos en tablero</span></div>
@@ -145,10 +146,18 @@ function renderFilters(root) {
   panel.querySelectorAll('.pill').forEach((button) => {
     button.addEventListener('click', () => {
       const country = button.dataset.country
+      if (country === 'Global') {
+        state.filters.countries = ['Global']
+        render()
+        return
+      }
       if (state.filters.countries.includes(country)) {
         state.filters.countries = state.filters.countries.filter((item) => item !== country)
       } else {
-        state.filters.countries = [...state.filters.countries, country]
+        state.filters.countries = [...state.filters.countries.filter((item) => item !== 'Global'), country]
+      }
+      if (!state.filters.countries.length) {
+        state.filters.countries = ['Global']
       }
       render()
     })
@@ -170,7 +179,7 @@ function renderGrid(root) {
     const empty = el('div', 'empty-state')
     empty.innerHTML = `
       <h2>Sin resultados todavía</h2>
-      <p>Elegí un rubro, sumá países, agregá una ciudad si querés afinar la búsqueda y tocá <strong>Buscar oportunidades</strong>.</p>
+      <p>Elegí un rubro, dejá <strong>Global</strong> o sumá países, agregá una ciudad si querés afinar la búsqueda y tocá <strong>Buscar oportunidades</strong>.</p>
     `
     grid.append(empty)
     root.append(grid)

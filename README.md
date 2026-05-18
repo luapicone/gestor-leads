@@ -8,8 +8,8 @@ Encontrar empresas de cualquier rubro con presencia web floja, ver su sitio desd
 
 ## Qué hace
 
-- Busca empresas por rubro, país y ciudad
-- Combina una base curada con búsqueda web pública
+- Busca empresas por rubro, en modo global o por país y ciudad
+- Usa búsqueda web pública como fuente principal
 - Extrae nombre, sitio y snippet
 - Analiza cada web con heurísticas comerciales
 - Calcula score y prioridad (`A`, `B`, `C`)
@@ -46,7 +46,7 @@ El score sube cuando la web:
 
 1. Levantar con `npm run dev`
 2. Abrir `http://localhost:4173`
-3. Elegir rubro, países, ciudad y cantidad
+3. Elegir rubro, dejar `Global` o seleccionar países, ciudad y cantidad
 4. Revisar resultados, score, preview y mensaje
 5. Abrir la web real o copiar el texto sugerido
 
@@ -72,5 +72,6 @@ Con eso, al importar el repo en Vercel no hace falta correr el servidor Express 
 
 - No envía emails ni mensajes automáticamente.
 - Algunas webs bloquean iframes; en ese caso se puede usar el botón `Abrir sitio`.
-- Para evitar quedarse sin resultados, la búsqueda combina una base curada (`data/prospects-seed.json`) con búsqueda web pública.
+- La búsqueda usa la web pública como fuente principal.
+- La base curada (`data/prospects-seed.json`) queda solo como fallback opcional cuando una búsqueda por país no devuelve resultados públicos.
 - Ya incluye países hispanohablantes y también mercados angloparlantes como Estados Unidos, Reino Unido, Canadá, Australia, Nueva Zelanda, Irlanda, Sudáfrica y Singapur.
