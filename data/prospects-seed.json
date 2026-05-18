@@ -1,0 +1,54 @@
+[
+  {"name":"Edhinor","website":"https://www.edhinor.es","country":"España","city":"Madrid","snippet":"Constructora de Madrid especializada en edificación, rehabilitación y obra civil."},
+  {"name":"Jirsa Constructora","website":"https://jirsaconstructora.com","country":"España","city":"Madrid","snippet":"Empresa constructora especializada en proyectos residenciales."},
+  {"name":"Noba Construcción","website":"https://nobaconstruccion.com","country":"España","city":"Madrid","snippet":"Reformas integrales y proyectos de construcción con foco en viviendas y locales."},
+  {"name":"ULMA Construction","website":"https://www.ulmaconstruction.com/","country":"España","city":"Oñati","snippet":"Soluciones para construcción, encofrados y andamios para obras."},
+  {"name":"FCC Construcción","website":"https://www.fccco.com/","country":"España","city":"Madrid","snippet":"Constructora internacional con proyectos de infraestructura y edificación."},
+  {"name":"Sacyr Ingeniería e Infraestructuras","website":"https://www.sacyr.com/","country":"España","city":"Madrid","snippet":"Grupo constructor con presencia en ingeniería, infraestructura y concesiones."},
+  {"name":"ACCIONA Construcción","website":"https://www.acciona.com/","country":"España","city":"Madrid","snippet":"Compañía de construcción e infraestructura con foco en proyectos sostenibles."},
+  {"name":"OHLA","website":"https://ohla-group.com/","country":"España","city":"Madrid","snippet":"Constructora global especializada en infraestructuras y edificación."},
+
+  {"name":"ICA","website":"https://www.ica.com.mx/","country":"México","city":"Ciudad de México","snippet":"Empresa de ingeniería, construcción y operación de infraestructura."},
+  {"name":"GIA","website":"https://www.gia.mx/","country":"México","city":"Ciudad de México","snippet":"Grupo de construcción, infraestructura y desarrollo inmobiliario."},
+  {"name":"Javer","website":"https://www.javer.com.mx/","country":"México","city":"Monterrey","snippet":"Desarrolladora de vivienda con proyectos residenciales."},
+  {"name":"Consorcio ARA","website":"https://www.ara.com.mx/","country":"México","city":"Ciudad de México","snippet":"Desarrolladora y constructora de vivienda residencial."},
+  {"name":"VINTE","website":"https://vinte.com/","country":"México","city":"Ciudad de México","snippet":"Desarrolladora inmobiliaria enfocada en comunidades sustentables."},
+  {"name":"Grupo Garza Ponce","website":"https://www.garzaponce.com/","country":"México","city":"Monterrey","snippet":"Constructora e inmobiliaria con proyectos corporativos y residenciales."},
+  {"name":"GP Construcción","website":"https://gpconstruccion.com/","country":"México","city":"Monterrey","snippet":"Constructora de proyectos industriales, corporativos y residenciales."},
+
+  {"name":"Techint Ingeniería y Construcción","website":"https://www.techint.com/es/negocios/ingenieria-y-construccion","country":"Argentina","city":"Buenos Aires","snippet":"Ingeniería y construcción para proyectos industriales y de infraestructura."},
+  {"name":"CRIBA","website":"https://criba.com.ar/","country":"Argentina","city":"Buenos Aires","snippet":"Empresa constructora con foco en obras de arquitectura e ingeniería."},
+  {"name":"Caputo","website":"https://www.caputo.com.ar/","country":"Argentina","city":"Buenos Aires","snippet":"Constructora argentina con trayectoria en obras públicas y privadas."},
+  {"name":"Riva","website":"https://www.riva.com.ar/","country":"Argentina","city":"Buenos Aires","snippet":"Empresa constructora especializada en infraestructura y edificación."},
+  {"name":"BTU","website":"https://www.btu.com.ar/","country":"Argentina","city":"Buenos Aires","snippet":"Compañía de ingeniería y construcción para energía, minería y obras."},
+  {"name":"Petersen Thiele y Cruz","website":"https://www.petersen-thiele-cruz.com.ar/","country":"Argentina","city":"Buenos Aires","snippet":"Constructora orientada a obras de arquitectura e infraestructura."},
+
+  {"name":"SalfaCorp","website":"https://www.salfacorp.com/","country":"Chile","city":"Santiago","snippet":"Grupo chileno de ingeniería, construcción e inmobiliaria."},
+  {"name":"Besalco","website":"https://www.besalco.cl/","country":"Chile","city":"Santiago","snippet":"Empresa constructora e inmobiliaria con proyectos de infraestructura."},
+  {"name":"Socovesa","website":"https://www.socovesa.cl/","country":"Chile","city":"Santiago","snippet":"Inmobiliaria y constructora de proyectos residenciales."},
+  {"name":"Echeverría Izquierdo","website":"https://www.echeverriaizquierdo.cl/","country":"Chile","city":"Santiago","snippet":"Constructora e inmobiliaria con obras en minería, montaje y edificación."},
+  {"name":"Paz Corp","website":"https://www.paz.cl/","country":"Chile","city":"Santiago","snippet":"Desarrolladora inmobiliaria con proyectos residenciales."},
+
+  {"name":"Cosapi","website":"https://www.cosapi.com.pe/","country":"Perú","city":"Lima","snippet":"Ingeniería y construcción para infraestructura, minería y energía."},
+  {"name":"Besco","website":"https://www.besco.com.pe/","country":"Perú","city":"Lima","snippet":"Constructora e inmobiliaria con proyectos residenciales."},
+  {"name":"JJC","website":"https://jjc.com.pe/","country":"Perú","city":"Lima","snippet":"Grupo de ingeniería y construcción para infraestructura y edificaciones."},
+  {"name":"AENZA","website":"https://www.aenza.com.pe/","country":"Perú","city":"Lima","snippet":"Holding de infraestructura y construcción antes conocido como Graña y Montero."},
+
+  {"name":"Constructora Bolívar","website":"https://www.constructorabolivar.com/","country":"Colombia","city":"Bogotá","snippet":"Constructora e inmobiliaria con desarrollos de vivienda."},
+  {"name":"Amarilo","website":"https://amarilo.com.co/","country":"Colombia","city":"Bogotá","snippet":"Desarrolladora y constructora de proyectos residenciales y urbanos."},
+  {"name":"Marval","website":"https://www.marval.com.co/","country":"Colombia","city":"Bucaramanga","snippet":"Constructora y desarrolladora con foco en vivienda e inversiones."},
+  {"name":"Conconcreto","website":"https://conconcreto.com/","country":"Colombia","city":"Medellín","snippet":"Infraestructura, construcción y desarrollo inmobiliario."},
+  {"name":"OIKOS Constructora","website":"https://www.oikos.com.co/","country":"Colombia","city":"Bogotá","snippet":"Constructora y promotora inmobiliaria con proyectos residenciales y corporativos."},
+
+  {"name":"Conexión Ganadera Desarrollos","website":"https://www.cgd.com.uy/","country":"Uruguay","city":"Montevideo","snippet":"Desarrollos inmobiliarios y construcción en Uruguay."},
+  {"name":"Altius Group","website":"https://altius.com.uy/","country":"Uruguay","city":"Montevideo","snippet":"Desarrolladora e inmobiliaria con proyectos residenciales premium."},
+
+  {"name":"Fortaleza","website":"https://www.fortaleza.com.py/","country":"Paraguay","city":"Asunción","snippet":"Desarrolladora inmobiliaria y constructora de edificios residenciales."},
+  {"name":"Codas Vuyk","website":"https://www.codasvuyk.com/","country":"Paraguay","city":"Asunción","snippet":"Ingeniería y construcción para obras civiles e infraestructura."},
+
+  {"name":"Uribe Schwarzkopf","website":"https://www.uribeschwarzkopf.com/","country":"Ecuador","city":"Quito","snippet":"Desarrolladora y constructora de proyectos inmobiliarios de diseño."},
+  {"name":"Pronobis","website":"https://www.pronobis.com.ec/","country":"Ecuador","city":"Guayaquil","snippet":"Desarrolladora inmobiliaria con proyectos corporativos y residenciales."},
+
+  {"name":"Grupo SUCASA","website":"https://www.sucasa.com/","country":"Panamá","city":"Ciudad de Panamá","snippet":"Desarrolladora y promotora inmobiliaria con proyectos residenciales."},
+  {"name":"Empresas Bern","website":"https://www.empresasberna.com/","country":"Panamá","city":"Ciudad de Panamá","snippet":"Grupo inmobiliario y constructor con desarrollos en Panamá."}
+]

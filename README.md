@@ -9,7 +9,7 @@ Encontrar constructoras con presencia web floja, ver su sitio desde un tablero, 
 ## Qué hace
 
 - Busca constructoras por país y ciudad
-- Toma resultados públicos de buscadores
+- Toma resultados desde una base gratuita curada por país
 - Extrae nombre, sitio y snippet
 - Analiza cada web con heurísticas comerciales
 - Calcula score y prioridad (`A`, `B`, `C`)
@@ -72,4 +72,5 @@ Con eso, al importar el repo en Vercel no hace falta correr el servidor Express 
 
 - No envía emails ni mensajes automáticamente.
 - Algunas webs bloquean iframes; en ese caso se puede usar el botón `Abrir sitio`.
-- La búsqueda usa heurísticas simples pensadas para prospección asistida, no para scraping masivo.
+- Para evitar bloqueos `403` en Vercel, la búsqueda usa una base gratuita curada (`data/prospects-seed.json`) en lugar de depender de buscadores externos.
+- Esa base se puede ampliar manualmente con más constructoras, ciudades y países sin costo.
