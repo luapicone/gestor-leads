@@ -26,6 +26,7 @@ const API_BASE = ['localhost', '127.0.0.1'].includes(window.location.hostname) &
 
 const state = {
   loading: false,
+  hasSearched: false,
   items: [],
   error: '',
   selectedWebsite: '',
@@ -66,6 +67,7 @@ async function parseApiResponse(response) {
 
 async function searchProspects() {
   state.loading = true
+  state.hasSearched = true
   state.error = ''
   state.copiedIndex = null
   render()
@@ -142,6 +144,14 @@ function renderFilters(root) {
   panel.querySelector('#limitInput').addEventListener('input', (event) => {
     state.filters.limit = Number(event.target.value)
   })
+  ;['#industryInput', '#cityInput', '#limitInput'].forEach((selector) => {
+    panel.querySelector(selector).addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        event.preventDefault()
+        searchProspects()
+      }
+    })
+  })
   panel.querySelector('#searchButton').addEventListener('click', searchProspects)
   panel.querySelectorAll('.pill').forEach((button) => {
     button.addEventListener('click', () => {
@@ -177,10 +187,15 @@ function renderGrid(root) {
 
   if (!state.items.length && !state.loading) {
     const empty = el('div', 'empty-state')
-    empty.innerHTML = `
-      <h2>Sin resultados todavía</h2>
-      <p>Elegí un rubro, dejá <strong>Global</strong> o sumá países, agregá una ciudad si querés afinar la búsqueda y tocá <strong>Buscar oportunidades</strong>.</p>
-    `
+    empty.innerHTML = state.hasSearched
+      ? `
+          <h2>No encontramos resultados</h2>
+          <p>Probá con un rubro más corto o más genérico, dejá <strong>Global</strong> activo y evitá poner ciudad al principio.</p>
+        `
+      : `
+          <h2>Listo para buscar</h2>
+          <p>Escribí un rubro, dejá <strong>Global</strong> o sumá países, y tocá <strong>Buscar oportunidades</strong> o apretá <strong>Enter</strong>.</p>
+        `
     grid.append(empty)
     root.append(grid)
     return
