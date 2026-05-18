@@ -17,10 +17,10 @@ app.get('/api/health', (_req, res) => {
 })
 
 app.post('/api/prospects/search', async (req, res) => {
-  const { countries = DEFAULT_COUNTRIES, city = '', limit = 12 } = req.body || {}
+  const { countries = DEFAULT_COUNTRIES, city = '', industry = '', limit = 12 } = req.body || {}
 
   try {
-    const result = await searchProspects({ countries, city, limit })
+    const result = await searchProspects({ countries, city, industry, limit })
     res.json(result)
   } catch (error) {
     res.status(500).json({ error: error.message || 'Error buscando prospectos' })
